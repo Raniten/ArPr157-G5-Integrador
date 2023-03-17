@@ -26,9 +26,14 @@ public class Prode {
         System.out.println("--------------------------------------------------------");
         System.out.println("Cuando se termina de trabajar, guardar, cerrar, \ny en el desktop, hacer un add si se crearon archivos nuevos, luego commit agregando comentarios sino no deja, \ny luego el push"); //agregado pro Marcelo Ranzani
         
+        /* Creamos un ArrayList cuyos componentes son Arrays de Strings,
+        donde guardaremos cada uno de los renglones del archivo PRONOSTICO.CSV*/
+        
         ArrayList<String[]> datos = new ArrayList<String[]>();
         try {
-            datos = Prode.LeerArchivo("D:\\ArPr157-G5-Integrador\\Prode\\src\\main\\java\\argprog157\\prode\\resultados.csv");
+            File archivo = new File("src\\main\\java\\argprog157\\prode\\pronostico.csv");
+            System.out.println(archivo.getAbsolutePath());
+            datos = Prode.LeerArchivo(archivo);
         } catch (IOException ex) {
             Logger.getLogger(Prode.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -37,23 +42,42 @@ public class Prode {
         }
         System.out.println(datos.toString());
         
+        //Creamos un arrayList de objetos PRONOSTICO
+        ArrayList<Pronostico> misPronosticos = new ArrayList<Pronostico>();
+        
+        for (String[] fila : datos) {
+            Pronostico prono1 = new Pronostico();
+            
+            prono1.setEq1Id(Integer.parseInt(fila[0]));
+            if(fila[1].equals("X")) {
+                prono1.setGana1(true);
+            }
+            if(fila[2].equals("X")) {
+                prono1.setEmpatan(true);
+            }
+            if(fila[3].equals("X")) {
+                prono1.setGana2(true);
+            }
+            prono1.setEq2Id(Integer.parseInt(fila[4]));
+            
+            misPronosticos.add(prono1); //Agregamos un elemento del tipo PRONOSTICO al ArrayList
+        }
 
     }
 
-    static ArrayList<String[]> LeerArchivo (String archivo) throws FileNotFoundException, IOException {
+    static ArrayList<String[]> LeerArchivo (File archivo) throws FileNotFoundException, IOException {
         
-        String archivoCSV = "ruta/al/archivo.csv";
-        Scanner scanner = null;
         String separadorCSV = ";";
         ArrayList<String[]> datos = new ArrayList<String[]>();
 
         
-        scanner = new Scanner(new File(archivo));
-        while (scanner.hasNext()) {
-            String linea = scanner.nextLine();
+        Scanner sc = new Scanner(archivo);
+        while (sc.hasNext()) {
+            String linea = sc.nextLine();
             String[] fila = linea.split(separadorCSV);
             datos.add(fila);
         }
+        datos.remove(0); //Eliminamos la cabecera, son datos que no necesitamos
         return datos;
     }
 }
