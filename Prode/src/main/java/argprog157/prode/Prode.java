@@ -27,26 +27,28 @@ public class Prode {
         
         
         // Obtenemos los datos del archivo PRONOSTICO
-        ArrayList<String[]> datosProno = new ArrayList<String[]>(); //Creamos un ArrayList de Arrays de Strings
+        ArrayList<String[]> datos = new ArrayList<String[]>(); //Creamos un ArrayList de Arrays de Strings
         
         LeerArchivo archivoProno = new LeerArchivo("src\\main\\java\\argprog157\\prode\\pronostico.csv", ";"); //Instanciamos un objeto del tipo LEERARCHIVO
-        datosProno = archivoProno.devolverDatos(); //Ponemos en el ArrayList de Arrays de Strings el ArraysList de Strings que devuleve el metodo devolverDatos de la clase LEERARCHIVO
+        datos = archivoProno.devolverDatos(); //Ponemos en el ArrayList de Arrays de Strings el ArraysList de Strings que devuleve el metodo devolverDatos de la clase LEERARCHIVO
+        
+         ArrayList<Pronostico> misPronosticos = new ArrayList<Pronostico>();
+        
+        CSVtoProno cvsProno = new CSVtoProno(datos);
+        misPronosticos = cvsProno.getArrayListProno();
         
         
         
         // Obtenemos los datos del archivo RESULTADOS
-        ArrayList<String[]> datosResul = new ArrayList<String[]>();
-        
+        datos.clear();    //Reutilizamos la lista creada anteriormente
+                
         LeerArchivo archivoResul = new LeerArchivo("src\\main\\java\\argprog157\\prode\\resultados.csv", ";");
-        datosResul = archivoResul.devolverDatos();
+        datos = archivoResul.devolverDatos();
         
         
         
         
-        ArrayList<Pronostico> misPronosticos = new ArrayList<Pronostico>();
-        
-        CSVtoProno cvsProno = new CSVtoProno(datosProno);
-        misPronosticos = cvsProno.getArrayListProno();
+       
         
         System.out.println("------------------------------------------------------");
         System.out.println("Comprobar si carga los datos");
