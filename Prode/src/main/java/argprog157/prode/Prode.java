@@ -17,67 +17,50 @@ import java.util.logging.Logger;
  */
 public class Prode {
 
-    public static void main(String[] args) {
-        System.out.println("Argentina Programa 4.0 - Desarrollador JAVA inicial \nComisión 157 - Grupo 5 - Trabajo Integrador");
-        System.out.println("hola github");//agregado 14:27hs x Manu Amsler
-        System.out.println("java17.0.6, sino, no anda");//agregado 14:27hs x Manu Amsler
+    public static void main(String[] args) throws FileNotFoundException {
+        System.out.println("Argentina Programa 4.0 - Desarrollador JAVA inicial Comisión 157 - Grupo 5 - Trabajo Integrador");
         System.out.println("--------------------------------------------------------");
-        System.out.println("Primer paso antes de trabajar, \nen el desktop, hacer un fetch, \nsi hay cambios en el proyecto, hacer un pull"); 
+        System.out.println("Primer paso antes de trabajar, en el desktop, hacer un fetch, si hay cambios en el proyecto, hacer un pull"); 
         System.out.println("--------------------------------------------------------");
-        System.out.println("Cuando se termina de trabajar, guardar, cerrar, \ny en el desktop, hacer un add si se crearon archivos nuevos, luego commit agregando comentarios sino no deja, \ny luego el push"); //agregado pro Marcelo Ranzani
+        System.out.println("Cuando se termina de trabajar, guardar, cerrar, y en el desktop, \nhacer un add si se crearon archivos nuevos, luego commit agregando comentarios sino no deja, y luego el push"); //agregado pro Marcelo Ranzani
         
-        /* Creamos un ArrayList cuyos componentes son Arrays de Strings,
-        donde guardaremos cada uno de los renglones del archivo PRONOSTICO.CSV*/
         
-        ArrayList<String[]> datos = new ArrayList<String[]>();
-        try {
-            File archivo = new File("src\\main\\java\\argprog157\\prode\\pronostico.csv");
-            System.out.println(archivo.getAbsolutePath());
-            datos = Prode.LeerArchivo(archivo);
-        } catch (IOException ex) {
-            Logger.getLogger(Prode.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        for (int i = 0; i < datos.size(); i++) {
-            System.out.println(datos.get(i));
-        }
-        System.out.println(datos.toString());
         
-        //Creamos un arrayList de objetos PRONOSTICO
+        // Obtenemos los datos del archivo PRONOSTICO
+        ArrayList<String[]> datosProno = new ArrayList<String[]>(); //Creamos un ArrayList de Arrays de Strings
+        
+        LeerArchivo archivoProno = new LeerArchivo("src\\main\\java\\argprog157\\prode\\pronostico.csv", ";"); //Instanciamos un objeto del tipo LEERARCHIVO
+        datosProno = archivoProno.devolverDatos(); //Ponemos en el ArrayList de Arrays de Strings el ArraysList de Strings que devuleve el metodo devolverDatos de la clase LEERARCHIVO
+        
+        
+        
+        // Obtenemos los datos del archivo RESULTADOS
+        ArrayList<String[]> datosResul = new ArrayList<String[]>();
+        
+        LeerArchivo archivoResul = new LeerArchivo("src\\main\\java\\argprog157\\prode\\resultados.csv", ";");
+        datosResul = archivoResul.devolverDatos();
+        
+        
+        
+        
         ArrayList<Pronostico> misPronosticos = new ArrayList<Pronostico>();
         
-        for (String[] fila : datos) {
-            Pronostico prono1 = new Pronostico();
-            
-            prono1.setEq1Id(Integer.parseInt(fila[0]));
-            if(fila[1].equals("X")) {
-                prono1.setGana1(true);
-            }
-            if(fila[2].equals("X")) {
-                prono1.setEmpatan(true);
-            }
-            if(fila[3].equals("X")) {
-                prono1.setGana2(true);
-            }
-            prono1.setEq2Id(Integer.parseInt(fila[4]));
-            
-            misPronosticos.add(prono1); //Agregamos un elemento del tipo PRONOSTICO al ArrayList
-        }
-
-    }
-
-    static ArrayList<String[]> LeerArchivo (File archivo) throws FileNotFoundException, IOException {
+        CSVtoProno cvsProno = new CSVtoProno(datosProno);
+        misPronosticos = cvsProno.getArrayListProno();
         
-        String separadorCSV = ";";
-        ArrayList<String[]> datos = new ArrayList<String[]>();
-
+        System.out.println("------------------------------------------------------");
+        System.out.println("Comprobar si carga los datos");
+        System.out.println("------------------------------------------------------");
         
-        Scanner sc = new Scanner(archivo);
-        while (sc.hasNext()) {
-            String linea = sc.nextLine();
-            String[] fila = linea.split(separadorCSV);
-            datos.add(fila);
+        System.out.println("------------------------------------------------------");
+        
+        for (Pronostico misPronos : misPronosticos) {
+            System.out.println("Id Equipo 1: " + misPronos.eq1Id);
+            System.out.println("Gana Equipo 1: " + misPronos.gana1);
+            System.out.println("Empatan: " + misPronos.empatan);
+            System.out.println("Gana Equipo 2: " + misPronos.gana2);
+            System.out.println("Id Equipo 2: " + misPronos.eq2Id);
+            System.out.println("------------------------");
         }
-        datos.remove(0); //Eliminamos la cabecera, son datos que no necesitamos
-        return datos;
     }
 }
