@@ -1,13 +1,44 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package argprog157.prode;
 
 /**
  *
- * @author Marcelo
+ * @author Argentina Programa - Comisión 157-2023 - Grupo 5
  */
 public class Equipo {
+    int eqId;
+    String eqNombre;
+    String eqDescripcion;
+
+    public Equipo(int eqId, String eqNombre, String eqDescripcion) {
+        this.eqId = eqId;
+        this.eqNombre = eqNombre;
+        this.eqDescripcion = eqDescripcion;
+    }
+
+    public int getEqId() {
+        return eqId;
+    }
+
+    public void setEqId(int eqId) {
+        this.eqId = eqId;
+    }
+
+    public String getEqNombre() {
+        return eqNombre;
+    }
+
+    public void setEqNombre(String eqNombre) {
+        this.eqNombre = eqNombre;
+    }
+
+    public String getEqDescripcion() {
+        return eqDescripcion;
+    }
+
+    public void setEqDescripcion(String eqDescripcion) {
+        this.eqDescripcion = eqDescripcion;
+    }
+    
+    
     
 }

@@ -1,13 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package argprog157.prode;
 
 /**
  *
- * @author Marcelo
+ * @author Argentina Programa - Comisión 157-2023 - Grupo 5
  */
 public class Partido {
+    int parId;
+    int eq1Id;
+    int eq2Id;
+    int golesEq1;
+    int golesEq2;
     
 }
