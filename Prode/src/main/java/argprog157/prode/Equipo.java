@@ -5,9 +5,9 @@ package argprog157.prode;
  * @author Argentina Programa - Comisión 157-2023 - Grupo 5
  */
 public class Equipo {
-    int eqId;
-    String eqNombre;
-    String eqDescripcion;
+    private int eqId;
+    private String eqNombre;
+    private String eqDescripcion;
 
     public Equipo(int eqId, String eqNombre, String eqDescripcion) {
         this.eqId = eqId;

@@ -8,8 +8,8 @@ import java.util.ArrayList;
  * @author Argentina Programa - Comisión 157-2023 - Grupo 5
  */
 public class CSVtoProno {
-    ArrayList<String[]> datos = new ArrayList<String[]>();
-    ArrayList<Pronostico> misPronosticos = new ArrayList<Pronostico>();
+    ArrayList<String[]> datos = new ArrayList<>();
+    ArrayList<Pronostico> misPronosticos = new ArrayList<>();
     
     public CSVtoProno (ArrayList<String[]> datos ){
         this.datos = datos;
@@ -32,10 +32,15 @@ public class CSVtoProno {
             }
             prono1.setEq2Id(Integer.parseInt(fila[4]));
             
+            if(prono1.getEq1Id() < prono1.getEq2Id()) {
+                prono1.setPronosticoId("" + prono1.getEq1Id() + prono1.getEq2Id());
+            } else {
+                prono1.setPronosticoId("" + prono1.getEq2Id() + prono1.getEq1Id());
+            }
+
             this.misPronosticos.add(prono1); //Agregamos un elemento del tipo PRONOSTICO al ArrayList
         }
-        
+
         return this.misPronosticos;
     }
-        
 }

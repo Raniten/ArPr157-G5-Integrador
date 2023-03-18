@@ -32,7 +32,7 @@ public class Prode {
         LeerArchivo archivoProno = new LeerArchivo("src\\main\\java\\argprog157\\prode\\pronostico.csv", ";"); //Instanciamos un objeto del tipo LEERARCHIVO
         datos = archivoProno.devolverDatos(); //Ponemos en el ArrayList de Arrays de Strings el ArraysList de Strings que devuleve el metodo devolverDatos de la clase LEERARCHIVO
         
-         ArrayList<Pronostico> misPronosticos = new ArrayList<Pronostico>();
+        ArrayList<Pronostico> misPronosticos = new ArrayList<Pronostico>();
         
         CSVtoProno cvsProno = new CSVtoProno(datos);
         misPronosticos = cvsProno.getArrayListProno();
@@ -45,23 +45,37 @@ public class Prode {
         LeerArchivo archivoResul = new LeerArchivo("src\\main\\java\\argprog157\\prode\\resultados.csv", ";");
         datos = archivoResul.devolverDatos();
         
+        ArrayList<Resultado> misResultados = new ArrayList<Resultado>();
         
-        
-        
-       
+        CSVtoResul cvsResul = new CSVtoResul(datos);
+        misResultados = cvsResul.getArrayListResul();
         
         System.out.println("------------------------------------------------------");
         System.out.println("Comprobar si carga los datos");
         System.out.println("------------------------------------------------------");
         
         System.out.println("------------------------------------------------------");
-        
+        System.out.println("Pronosticos");
+        System.out.println("------------------------------------------------------");
         for (Pronostico misPronos : misPronosticos) {
-            System.out.println("Id Equipo 1: " + misPronos.eq1Id);
-            System.out.println("Gana Equipo 1: " + misPronos.gana1);
-            System.out.println("Empatan: " + misPronos.empatan);
-            System.out.println("Gana Equipo 2: " + misPronos.gana2);
-            System.out.println("Id Equipo 2: " + misPronos.eq2Id);
+            System.out.println("Id de Pronostico: " + misPronos.getPronosticoId());
+            System.out.println("Id Equipo 1: " + misPronos.getEq1Id());
+            System.out.println("Gana Equipo 1: " + misPronos.isGana1());
+            System.out.println("Empatan: " + misPronos.isEmpatan());
+            System.out.println("Gana Equipo 2: " + misPronos.isGana2());
+            System.out.println("Id Equipo 2: " + misPronos.getEq2Id());
+            System.out.println("------------------------");
+        }
+        
+        System.out.println("------------------------------------------------------");
+        System.out.println("Resultados");
+        System.out.println("------------------------------------------------------");
+        for (Resultado misResuls : misResultados) {
+            System.out.println("Id Resultado: " + misResuls.getResultadoId());
+            System.out.println("Id Equipo 1: " + misResuls.getEq1Id());
+            System.out.println("Goles Equipo 1: " + misResuls.getGolesEq1());
+            System.out.println("Goles Equipo 2: " + misResuls.getGolesEq2());
+            System.out.println("Id Equipo 2: " + misResuls.getEq2Id());
             System.out.println("------------------------");
         }
     }

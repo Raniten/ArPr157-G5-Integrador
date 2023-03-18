@@ -6,11 +6,20 @@ package argprog157.prode;
  * @author Argentina Programa - Comisión 157-2023 - Grupo 5
  */
 public class Pronostico {
-    int eq1Id;
-    boolean gana1; 
-    boolean empatan;
-    boolean gana2;
-    int eq2Id;
+    private String pronosticoId;
+    private int eq1Id;
+    private boolean gana1; 
+    private boolean empatan;
+    private boolean gana2;
+    private int eq2Id;
+    
+    public String getPronosticoId() {
+        return pronosticoId;
+    }
+
+    public void setPronosticoId(String pronosticoId) {
+        this.pronosticoId = pronosticoId;
+    }
 
     public int getEq1Id() {
         return eq1Id;
