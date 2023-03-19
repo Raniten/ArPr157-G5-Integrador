@@ -8,8 +8,8 @@ import java.util.ArrayList;
  */
 public class CSVtoProno {
 
-    ArrayList<String[]> datos = new ArrayList<>();
-    ArrayList<Pronostico> misPronosticos = new ArrayList<>();
+    private ArrayList<String[]> datos = new ArrayList<>();
+    private ArrayList<Pronostico> misPronosticos = new ArrayList<>();
 
     public CSVtoProno(ArrayList<String[]> datos) {
         this.datos = datos;

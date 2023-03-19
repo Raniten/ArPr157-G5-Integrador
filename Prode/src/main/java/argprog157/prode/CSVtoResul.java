@@ -7,8 +7,8 @@ import java.util.ArrayList;
  */
 public class CSVtoResul {
 
-    ArrayList<String[]> datos = new ArrayList<String[]>();
-    ArrayList<Resultado> misResultados = new ArrayList<Resultado>();
+    private ArrayList<String[]> datos = new ArrayList<String[]>();
+    private ArrayList<Resultado> misResultados = new ArrayList<Resultado>();
 
     public CSVtoResul(ArrayList<String[]> datos) {
         this.datos = datos;
