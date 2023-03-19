@@ -30,6 +30,7 @@ public class LeerArchivo {
             datos.add(fila);
         }
         datos.remove(0); //Eliminamos la cabecera, son datosProno que no necesitamos
+        sc.close();  //Cerramos ela rchivo utilizado
         return datos;
     }
 }

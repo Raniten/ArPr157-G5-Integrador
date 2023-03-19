@@ -33,9 +33,17 @@ public class CSVtoProno {
             prono1.setEq2Id(Integer.parseInt(fila[4]));
             
             if(prono1.getEq1Id() < prono1.getEq2Id()) {
-                prono1.setPronosticoId("" + prono1.getEq1Id() + prono1.getEq2Id());
-            } else {
-                prono1.setPronosticoId("" + prono1.getEq2Id() + prono1.getEq1Id());
+                if(prono1.getEq1Id() < 10) {
+                    if(prono1.getEq2Id() < 10) {
+                        prono1.setPronosticoId("0" + prono1.getEq1Id() + "0" +  prono1.getEq2Id());
+                    } else {
+                        prono1.setPronosticoId("0" + prono1.getEq2Id() + prono1.getEq1Id());
+                    }
+                } else if (prono1.getEq2Id() < 10) {
+                        prono1.setPronosticoId("" + prono1.getEq1Id() + "0" +  prono1.getEq2Id());
+                    } else {
+                        prono1.setPronosticoId("" + prono1.getEq1Id() + prono1.getEq2Id());
+                    }
             }
 
             this.misPronosticos.add(prono1); //Agregamos un elemento del tipo PRONOSTICO al ArrayList

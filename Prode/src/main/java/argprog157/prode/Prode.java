@@ -24,31 +24,34 @@ public class Prode {
         System.out.println("--------------------------------------------------------");
         System.out.println("Cuando se termina de trabajar, guardar, cerrar, y en el desktop, \nhacer un add si se crearon archivos nuevos, luego commit agregando comentarios sino no deja, y luego el push"); //agregado pro Marcelo Ranzani
         
-        
+        //-------------------------------------------------------------------------------------------
         
         // Obtenemos los datos del archivo PRONOSTICO
-        ArrayList<String[]> datos = new ArrayList<String[]>(); //Creamos un ArrayList de Arrays de Strings
+        ArrayList<String[]> datos = new ArrayList<>(); //Creamos un ArrayList de Arrays de Strings
         
-        LeerArchivo archivoProno = new LeerArchivo("src\\main\\java\\argprog157\\prode\\pronostico.csv", ";"); //Instanciamos un objeto del tipo LEERARCHIVO
-        datos = archivoProno.devolverDatos(); //Ponemos en el ArrayList de Arrays de Strings el ArraysList de Strings que devuleve el metodo devolverDatos de la clase LEERARCHIVO
+        LeerArchivo archivo = new LeerArchivo("src\\main\\java\\argprog157\\prode\\pronostico.csv", ";"); //Instanciamos un objeto del tipo LEERARCHIVO
+        datos = archivo.devolverDatos(); //Ponemos en el ArrayList de Arrays de Strings el ArraysList de Strings que devuleve el metodo devolverDatos de la clase LEERARCHIVO
         
-        ArrayList<Pronostico> misPronosticos = new ArrayList<Pronostico>();
+        ArrayList<Pronostico> misPronosticos = new ArrayList<>();
         
         CSVtoProno cvsProno = new CSVtoProno(datos);
         misPronosticos = cvsProno.getArrayListProno();
         
-        
+        //-------------------------------------------------------------------------------------------
         
         // Obtenemos los datos del archivo RESULTADOS
         datos.clear();    //Reutilizamos la lista creada anteriormente
                 
-        LeerArchivo archivoResul = new LeerArchivo("src\\main\\java\\argprog157\\prode\\resultados.csv", ";");
-        datos = archivoResul.devolverDatos();
+        //Reutilizamos el objeto "archivo" que es de tipo "LeerArchivo" para leer el archivo RESULTADOS
+        archivo = new LeerArchivo("src\\main\\java\\argprog157\\prode\\resultados.csv", ";");
+        datos = archivo.devolverDatos();
         
-        ArrayList<Resultado> misResultados = new ArrayList<Resultado>();
+        ArrayList<Resultado> misResultados = new ArrayList<>();
         
         CSVtoResul cvsResul = new CSVtoResul(datos);
         misResultados = cvsResul.getArrayListResul();
+        
+        //-------------------------------------------------------------------------------------------
         
         System.out.println("------------------------------------------------------");
         System.out.println("Comprobar si carga los datos");
