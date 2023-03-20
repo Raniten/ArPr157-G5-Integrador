@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Argentina Programa - Comisión 157-2023 - Grupo 5
+ * @author Argentina Programa - Comisión 157-2023 - Grupo 5 - 
  */
 public class CSVtoProno {
 
-    private ArrayList<String[]> datos = new ArrayList<>();
+    private ArrayList<String[]> datos = new ArrayList<>() ;
     private ArrayList<Pronostico> misPronosticos = new ArrayList<>();
 
     public CSVtoProno(ArrayList<String[]> datos) {
