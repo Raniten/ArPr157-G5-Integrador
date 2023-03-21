@@ -1,15 +1,10 @@
 
 package argprog157.prode;
 
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.FileNotFoundException;
-import java.io.IOException;
+
 import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -51,35 +46,41 @@ public class Prode {
         CSVtoResul cvsResul = new CSVtoResul(datos);
         misResultados = cvsResul.getArrayListResul();
         
+        Puntaje misPuntajes = new Puntaje(misPronosticos, misResultados);
+        
+        System.out.println("*************************************************");
+        System.out.println("*                Puntaje: " + misPuntajes.calcularPuntaje() + "                    *");
+        System.out.println("*************************************************");
+        
         //-------------------------------------------------------------------------------------------
         
-        System.out.println("------------------------------------------------------");
-        System.out.println("Comprobar si carga los datos");
-        System.out.println("------------------------------------------------------");
-        
-        System.out.println("------------------------------------------------------");
-        System.out.println("Pronosticos");
-        System.out.println("------------------------------------------------------");
-        for (Pronostico misPronos : misPronosticos) {
-            System.out.println("Id de Pronostico: " + misPronos.getPronosticoId());
-            System.out.println("Id Equipo 1: " + misPronos.getEq1Id());
-            System.out.println("Gana Equipo 1: " + misPronos.isGana1());
-            System.out.println("Empatan: " + misPronos.isEmpatan());
-            System.out.println("Gana Equipo 2: " + misPronos.isGana2());
-            System.out.println("Id Equipo 2: " + misPronos.getEq2Id());
-            System.out.println("------------------------");
-        }
-        
-        System.out.println("------------------------------------------------------");
-        System.out.println("Resultados");
-        System.out.println("------------------------------------------------------");
-        for (Resultado misResuls : misResultados) {
-            System.out.println("Id Resultado: " + misResuls.getResultadoId());
-            System.out.println("Id Equipo 1: " + misResuls.getEq1Id());
-            System.out.println("Goles Equipo 1: " + misResuls.getGolesEq1());
-            System.out.println("Goles Equipo 2: " + misResuls.getGolesEq2());
-            System.out.println("Id Equipo 2: " + misResuls.getEq2Id());
-            System.out.println("------------------------");
-        }
+//        System.out.println("------------------------------------------------------");
+//        System.out.println("Comprobar si carga los datos");
+//        System.out.println("------------------------------------------------------");
+//        
+//        System.out.println("------------------------------------------------------");
+//        System.out.println("Pronosticos");
+//        System.out.println("------------------------------------------------------");
+//        for (Pronostico misPronos : misPronosticos) {
+//            System.out.println("Id de Pronostico: " + misPronos.getPronosticoId());
+//            System.out.println("Id Equipo 1: " + misPronos.getEq1Id());
+//            System.out.println("Gana Equipo 1: " + misPronos.isGana1());
+//            System.out.println("Empatan: " + misPronos.isEmpatan());
+//            System.out.println("Gana Equipo 2: " + misPronos.isGana2());
+//            System.out.println("Id Equipo 2: " + misPronos.getEq2Id());
+//            System.out.println("------------------------");
+//        }
+//        
+//        System.out.println("------------------------------------------------------");
+//        System.out.println("Resultados");
+//        System.out.println("------------------------------------------------------");
+//        for (Resultado misResuls : misResultados) {
+//            System.out.println("Id Resultado: " + misResuls.getResultadoId());
+//            System.out.println("Id Equipo 1: " + misResuls.getEq1Id());
+//            System.out.println("Goles Equipo 1: " + misResuls.getGolesEq1());
+//            System.out.println("Goles Equipo 2: " + misResuls.getGolesEq2());
+//            System.out.println("Id Equipo 2: " + misResuls.getEq2Id());
+//            System.out.println("------------------------");
+//        }
     }
 }
