@@ -2,8 +2,9 @@
 package argprog157.prode;
 
 
-import java.io.FileNotFoundException;
+//import java.io.FileNotFoundException;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /**
@@ -45,7 +46,6 @@ public class Prode {
                 
         //Reutilizamos el objeto "archivo" que es de tipo "LeerArchivo" para leer el archivo RESULTADOS
         //archivo = new LeerArchivo("src\\main\\java\\argprog157\\prode\\resultados.csv", ";");
-        
         archivo = new LeerArchivo(args[1], ";");
         
         datos = archivo.devolverDatos();

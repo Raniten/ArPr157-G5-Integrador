@@ -22,29 +22,11 @@ public class CSVtoResul {
             resul1.setGolesEq1(Integer.parseInt(fila[3]));
             resul1.setGolesEq2(Integer.parseInt(fila[4]));
             resul1.setEq2Id(Integer.parseInt(fila[5]));
-            if (resul1.getEq1Id() < resul1.getEq2Id()) {
-                if (resul1.getEq1Id() < 10) {
-                    if (resul1.getEq2Id() < 10) {
-                        resul1.setResultadoId("0" + resul1.getEq1Id() + "0" + resul1.getEq2Id());
-                    } else {
-                        resul1.setResultadoId("0" + resul1.getEq1Id() + resul1.getEq2Id());
-                    }
-                } else if (resul1.getEq2Id() < 10) {
-                    resul1.setResultadoId("" + resul1.getEq1Id() + "0" + resul1.getEq2Id());
-                } else {
-                    resul1.setResultadoId("" + resul1.getEq1Id() + resul1.getEq2Id());
-                }
-            } else if (resul1.getEq2Id() < 10) {
-                    if (resul1.getEq1Id() < 10) {
-                        resul1.setResultadoId("0" + resul1.getEq2Id() + "0" + resul1.getEq1Id());
-                    } else {
-                        resul1.setResultadoId("0" + resul1.getEq2Id() + resul1.getEq1Id());
-                    }
-                } else if (resul1.getEq1Id() < 10) {
-                    resul1.setResultadoId("" + resul1.getEq2Id() + "0" + resul1.getEq1Id());
-                } else {
-                    resul1.setResultadoId("" + resul1.getEq2Id() + resul1.getEq1Id());
-                }
+            if (resul1.getEq1Id() < resul1.getEq2Id()) {  //El ID del equipo 1 es menor al ID del equipo 2
+                resul1.setResultadoId(String.format("%02d", resul1.getEq1Id()) + String.format("%02d", resul1.getEq2Id()));
+            } else {
+                resul1.setResultadoId(String.format("%02d", resul1.getEq2Id()) + String.format("%02d", resul1.getEq1Id()));
+            }
 
             this.misResultados.add(resul1); //Agregamos un elemento del tipo RESULTADO al ArrayList
         }
