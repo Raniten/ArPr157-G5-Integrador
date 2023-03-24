@@ -1,6 +1,6 @@
 # ArPr157-G5-Integrador
 
-Los archivos de trabajo .CSV deben estar alojhados en el directorio /Prode
+Los archivos de trabajo .CSV deben estar alojados en el directorio /Prode
 
 El programa debe ejecutarse desde el directorio ArPr157-G5-Integrador\Prode\src\main\java
 
