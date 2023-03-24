@@ -21,10 +21,16 @@ public class Prode {
         
         //-------------------------------------------------------------------------------------------
         
+        System.out.println(args[0]);
+        System.out.println(args[1]);
+        
+        
         // Obtenemos los datos del archivo PRONOSTICO
         ArrayList<String[]> datos = new ArrayList<>(); //Creamos un ArrayList de Arrays de Strings
         
-        LeerArchivo archivo = new LeerArchivo("src\\main\\java\\argprog157\\prode\\pronostico.csv", ";"); //Instanciamos un objeto del tipo LEERARCHIVO
+        //LeerArchivo archivo = new LeerArchivo("src\\main\\java\\argprog157\\prode\\pronostico.csv", ";"); //Instanciamos un objeto del tipo LEERARCHIVO
+        LeerArchivo archivo = new LeerArchivo(args[0], ";");
+        
         datos = archivo.devolverDatos(); //Ponemos en el ArrayList de Arrays de Strings el ArraysList de Strings que devuleve el metodo devolverDatos de la clase LEERARCHIVO
         
         ArrayList<Pronostico> misPronosticos = new ArrayList<>();
@@ -38,7 +44,10 @@ public class Prode {
         datos.clear();    //Reutilizamos la lista creada anteriormente
                 
         //Reutilizamos el objeto "archivo" que es de tipo "LeerArchivo" para leer el archivo RESULTADOS
-        archivo = new LeerArchivo("src\\main\\java\\argprog157\\prode\\resultados.csv", ";");
+        //archivo = new LeerArchivo("src\\main\\java\\argprog157\\prode\\resultados.csv", ";");
+        
+        archivo = new LeerArchivo(args[1], ";");
+        
         datos = archivo.devolverDatos();
         
         ArrayList<Resultado> misResultados = new ArrayList<>();
