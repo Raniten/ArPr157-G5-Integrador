@@ -30,7 +30,7 @@ public class Prode {
         ArrayList<String[]> datos = new ArrayList<>(); //Creamos un ArrayList de Arrays de Strings
         
         //LeerArchivo archivo = new LeerArchivo("src\\main\\java\\argprog157\\prode\\pronostico.csv", ";"); //Instanciamos un objeto del tipo LEERARCHIVO
-        LeerArchivo archivo = new LeerArchivo(args[0], ";");
+        LeerArchivo archivo = new LeerArchivo(args[0], ";");  //Instanciamos un objeto del tipo LEERARCHIVO
         
         datos = archivo.devolverDatos(); //Ponemos en el ArrayList de Arrays de Strings el ArraysList de Strings que devuleve el metodo devolverDatos de la clase LEERARCHIVO
         
