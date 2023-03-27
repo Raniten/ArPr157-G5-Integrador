@@ -9,7 +9,7 @@ Se debe ejecutar con el comando:
 ```java argprog157/prode/Prode.java /ArPr157-G5-Integrador/Prode/pronostico.csv /ArPr157-G5-Integrador/Prode/resultados1.csv```
 
 Se entrega un solo archivo de resutlados, ya que estos no varían, y se entregan 3 distintos, para que los resutlados sean los requeridos
-```resultados1.csv
-resultados2.csv
-resultados3.csv```
 
+resultados1.csv
+resultados2.csv
+resultados3.csv
