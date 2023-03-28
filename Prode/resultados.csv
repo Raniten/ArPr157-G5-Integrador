@@ -1,17 +1,65 @@
-﻿Equipo 1 - id;Equipo 1 - nombre;Equipo 1 - descripcion;Equipo 1 - cantidad goles;Equipo 2 - cantidad goles;Equipo 2 - id;Equipo 2 - nombre;Equipo 2 - descripcion
-1;Qatar;Seleccionado;0;2;2;Ecuador;Seleccionado
-3;Senegal;Seleccionado;0;2;4;Paises Bajos;Seleccionado
-5;Inglaterra;Seleccionado;6;2;6;Iran;Seleccionado
-7;USA;Seleccionado;1;1;8;Gales;Seleccionado
-9;Argentina;Seleccionado;1;2;10;Arabia;Seleccionado
-11;Mexico;Seleccionado;0;0;12;Polonia;Seleccionado
-13;Dinamarca;Seleccionado;0;0;14;Tunez;Seleccionado
-15;Francia;Seleccionado;4;1;16;Australia;Seleccionado
-17;Alemania;Seleccionado;1;2;18;Japón;Seleccionado
-19;España;Seleccionado;7;0;20;Costa Rica;Seleccionado
-21;Marruecos;Seleccionado;0;0;22;Croacia;Seleccionado
-23;Belgica;Seleccionado;1;0;24;Canada;Seleccionado
-25;Suiza;Seleccionado;1;0;26;Camerun;Seleccionado
-27;Brasil;Seleccionado;2;0;28;Serbia;Seleccionado
-29;Uruguay;Seleccionado;0;0;30;Corea del Sur;Seleccionado
-31;Portugal;Seleccionado;3;2;32;Ghana;Seleccionado
+﻿Ronda;Equipo 1 - id;Equipo 1 - nombre;Equipo 1 - descripcion;Equipo 1 - cantidad goles;Equipo 2 - cantidad goles;Equipo 2 - id;Equipo 2 - nombre;Equipo 2 - descripcion
+1;1;Qatar;Seleccionado;0;2;2;Ecuador;Seleccionado
+1;3;Senegal;Seleccionado;0;2;4;Paises Bajos;Seleccionado
+1;5;Inglaterra;Seleccionado;6;2;6;Iran;Seleccionado
+1;7;USA;Seleccionado;1;1;8;Gales;Seleccionado
+1;9;Argentina;Seleccionado;1;2;10;Arabia;Seleccionado
+1;11;Mexico;Seleccionado;0;0;12;Polonia;Seleccionado
+1;13;Dinamarca;Seleccionado;0;0;14;Tunez;Seleccionado
+1;15;Francia;Seleccionado;4;1;16;Australia;Seleccionado
+1;17;Alemania;Seleccionado;1;2;18;Japón;Seleccionado
+1;19;España;Seleccionado;7;0;20;Costa Rica;Seleccionado
+1;21;Marruecos;Seleccionado;0;0;22;Croacia;Seleccionado
+1;23;Belgica;Seleccionado;1;0;24;Canada;Seleccionado
+1;25;Suiza;Seleccionado;1;0;26;Camerun;Seleccionado
+1;27;Brasil;Seleccionado;2;0;28;Serbia;Seleccionado
+1;29;Uruguay;Seleccionado;0;0;30;Corea del Sur;Seleccionado
+1;31;Portugal;Seleccionado;3;2;32;Ghana;Seleccionado
+2;1;Qatar;Seleccionado;1;3;3;Senegal;Seleccionado
+2;4;Paises Bajos;Seleccionado;1;1;2;Ecuador;Seleccionado
+2;8;Gales;Seleccionado;0;2;6;Iran;Seleccionado
+2;5;Inglaterra;Seleccionado;0;0;7;USA;Seleccionado
+2;12;Polonia;Seleccionado;2;0;10;Arabia;Seleccionado
+2;9;Argentina;Seleccionado;2;0;11;Mexico;Seleccionado
+2;14;Tunez;Seleccionado;0;1;16;Australia;Seleccionado
+2;15;Francia;Seleccionado;2;1;13;Dinamarca;Seleccionado
+2;18;Japon;Seleccionado;0;1;20;Costa Rica;Seleccionado
+2;19;España;Seleccionado;1;1;17;Alemania;Seleccionado
+2;23;Belgica;Seleccionado;0;2;21;Marruecos;Seleccionado
+2;22;Croacia;Seleccionado;4;1;24;Canada;Seleccionado
+2;26;Camerun;Seleccionado;3;3;28;Serbia;Seleccionado
+2;27;Brasil;Seleccionado;1;0;25;Suiza;Seleccionado
+2;30;Corea del Sur;Seleccionado;2;3;32;Ghana;Seleccionado
+2;31;Portugal;Seleccionado;2;0;29;Uruguay;Seleccionado
+3;2;Ecuador;Seleccionado;1;2;3;Senegal;Seleccionado
+3;4;Paises Bajos;Seleccionado;2;0;1;Qatar;Seleccionado
+3;6;Iran;Seleccionado;0;1;7;USA;Seleccionado
+3;8;Gales;Seleccionado;0;3;5;Inglaterra;Seleccionado
+3;12;Polonia;Seleccionado;0;2;9;Argentina;Seleccionado
+3;10;Arabia;Seleccionado;1;2;11;Mexico;Seleccionado
+3;16;Australia;Seleccionado;1;0;13;Dinamarca;Seleccionado
+3;14;Tunez;Seleccionado;1;0;15;Francia;Seleccionado
+3;20;Costa Rica;Seleccionado;2;4;17;Alemania;Seleccionado
+3;18;Japon;Seleccionado;2;1;19;España;Seleccionado
+3;24;Canada;Seleccionado;1;2;21;Marruecos;Seleccionado
+3;22;Croacia;Seleccionado;0;0;23;Belgica;Seleccionado
+3;28;Serbia;Seleccionado;2;3;25;Suiza;Seleccionado
+3;26;Camerun;Seleccionado;1;0;27;Brasil;Seleccionado
+3;32;Ghana;Seleccionado;0;2;29;Uruguay;Seleccionado
+3;30;Corea del Sur;Seleccionado;2;1;31;Portugal;Seleccionado
+4;4;Paises Bajos;Seleccionado;3;1;7;Usa;Seleccionado
+4;9;Argentina;Seleccionado;2;1;16;Australia;Seleccionado
+4;15;Francia;Seleccionado;3;1;12;Polonia;Seleccionado
+4;5;Inglaterra;Seleccionado;3;0;3;Senegal;Seleccionado
+4;18;Japon;Seleccionado;2;4;22;Croacia;Seleccionado
+4;27;Brasil;Seleccionado;4;1;30;Corea del Sur;Seleccionado
+4;21;Marruecos;Seleccionado;3;0;19;España;Seleccionado
+4;31;Portugal;Seleccionado;6;1;25;Suiza;Seleccionado
+5;22;Croacia;Seleccionado;5;3;27;Brasil;Seleccionado
+5;4;Paises Bajos;Seleccionado;5;6;9;Argentina;Seleccionado
+5;21;Marruecos;Seleccionado;1;0;31;Portugal;Seleccionado
+5;5;Inglaterra;Seleccionado;1;2;15;Francia;Seleccionado
+6;9;Argentina;Seleccionado;3;0;22;Croacia;Seleccionado
+6;15;Francia;Seleccionado;2;0;21;Marruecos;Seleccionado
+7;22;Croacia;Seleccionado;2;1;21;Marruecos;Seleccionado
+7;9;Argentina;Seleccionado;7;5;15;Francia;Seleccionado
