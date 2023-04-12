@@ -5,6 +5,7 @@ package argprog157.prode;
 //import java.io.FileNotFoundException;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -13,14 +14,8 @@ import java.util.ArrayList;
  */
 public class Prode {
 
-    public static void main(String[] args) throws FileNotFoundException {
-        System.out.println("Argentina Programa 4.0 - Desarrollador JAVA inicial Comisión 157 - Grupo 5 - Trabajo Integrador");
-        System.out.println("--------------------------------------------------------");
-        System.out.println("Primer paso antes de trabajar, en el desktop, hacer un fetch, si hay cambios en el proyecto, hacer un pull"); 
-        System.out.println("--------------------------------------------------------");
-        System.out.println("Cuando se termina de trabajar, guardar, cerrar, y en el desktop, \nhacer un add si se crearon archivos nuevos, luego commit agregando comentarios sino no deja, y luego el push"); //agregado pro Marcelo Ranzani
+    public static void main(String[] args) throws FileNotFoundException, IOException {
         
-        //-------------------------------------------------------------------------------------------
         
         System.out.println(args[0]);
         System.out.println(args[1]);
