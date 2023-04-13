@@ -7,6 +7,8 @@ package argprog157.prode;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -50,7 +52,56 @@ public class Prode {
         CSVtoResul cvsResul = new CSVtoResul(datos);
         misResultados = cvsResul.getArrayListResul();
         
-        Puntaje misPuntajes = new Puntaje(misPronosticos, misResultados);
+        //-------------------------------------------------------------------------------------------
+        // * * * * * * * * * * * VAMOS A CALCULAR LOS PUNTAJES, POR CADA PERSONA Y POR CADA RONDA
+        // PARA ESO VAMOS A CONTAR LA CANTIDAD DE PERSONAS DISTITNAS Y LA CANTIDAD DE RONDAS DISTINTAS
+        //-------------------------------------------------------------------------------------------
+        
+        HashSet<Integer> personasIds = new HashSet<>();
+        HashSet<Integer> rondasIds = new HashSet<>();
+        
+        // Iterar sobre cada objeto Pronostico del ArrayList
+        for (Pronostico p : misPronosticos) {
+            
+            // Agregar el valor de personaId al HashSet de personasIds. Sólo agrega valores distintos
+            personasIds.add(p.getPersonaId());
+            
+            // Agregar el valor de rondaId al HashSet de rondasIds. Sólo agrega valores distintos
+            rondasIds.add(p.getRondaId());
+        }
+
+        // Obtener la cantidad de valores únicos en cada conjunto
+        int cantidadPersonaIds = personasIds.size();
+        int cantidadRondaIds = rondasIds.size();
+
+        System.out.println("Cantidad de personasIds distintos: " + cantidadPersonaIds);
+        System.out.println("Cantidad de rondasIds distintos: " + cantidadRondaIds);
+
+        //Vamos a calcular el puntaje de cada PERSONA, y por cada RONDA
+        //Creamos un ArrayList para crear las listas filtradas
+        ArrayList<Pronostico> pronosticosFiltrados = new ArrayList<Pronostico>();
+        Puntaje misPuntajes;
+        
+        
+        for (int i = 0; i < cantidadPersonaIds; i++) {
+            pronosticosFiltrados.clear(); //dejamos sin elementos la lista filtrada
+            for (int j = 0; j < cantidadRondaIds; j++) {
+                for (Pronostico p : misPronosticos) {
+                    // Verificar si el objeto cumple con los criterios de filtrado
+                    if (personasIds.contains(p.getPersonaId()) && rondasIds.contains(p.getRondaId())) {
+                    // Si cumple, agregar el objeto al ArrayList de objetos filtrados
+                    pronosticosFiltrados.add(p);
+                    }
+                }
+                misPuntajes = new Puntaje(pronosticosFiltrados, misResultados);
+                System.out.println("*************************************************");
+                System.out.println("*                Puntaje: " + misPuntajes.calcularPuntaje() + "                    *");
+                System.out.println("*************************************************");
+                
+            }
+        }
+        
+        misPuntajes = new Puntaje(misPronosticos, misResultados);
         
         System.out.println("*************************************************");
         System.out.println("*                Puntaje: " + misPuntajes.calcularPuntaje() + "                    *");
