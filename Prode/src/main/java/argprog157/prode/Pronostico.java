@@ -7,6 +7,8 @@ package argprog157.prode;
  */
 public class Pronostico {
     private String pronosticoId;
+    private int personaId;
+    private int rondaId;
     private int eq1Id;
     private boolean gana1; 
     private boolean empatan;
@@ -19,6 +21,22 @@ public class Pronostico {
 
     public void setPronosticoId(String pronosticoId) {
         this.pronosticoId = pronosticoId;
+    }
+    
+    public int getPersonaId() {
+        return personaId;
+    }
+
+    public void setPersonaId(int personaId) {
+        this.personaId = personaId;
+    }
+
+    public int getRondaId() {
+        return rondaId;
+    }
+
+    public void setRondaId(int rondaId) {
+        this.rondaId = rondaId;
     }
 
     public int getEq1Id() {
@@ -60,7 +78,4 @@ public class Pronostico {
     public void setEq2Id(int eq2Id) {
         this.eq2Id = eq2Id;
     }
-    
-    
-    
 }

@@ -7,6 +7,7 @@ package argprog157.prode;
  */
 public class Resultado {
     private String resultadoId;
+    private int rondaId;
     private int eq1Id;
     private int golesEq1;
     private int golesEq2;
@@ -20,6 +21,14 @@ public class Resultado {
         this.resultadoId = resultadoId;
     }
 
+    public int getRondaId() {
+        return rondaId;
+    }
+
+    public void setRondaId(int rondaId) {
+        this.rondaId = rondaId;
+    }
+    
     public int getEq1Id() {
         return this.eq1Id;
     }
