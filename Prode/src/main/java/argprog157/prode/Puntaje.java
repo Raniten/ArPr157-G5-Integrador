@@ -40,10 +40,6 @@ public class Puntaje {
             }
             
         }
-        
-        
-        
         return puntaje;
-        
     }
 }

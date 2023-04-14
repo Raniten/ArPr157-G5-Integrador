@@ -24,9 +24,9 @@ public class CSVtoResul {
             resul1.setGolesEq2(Integer.parseInt(fila[5]));
             resul1.setEq2Id(Integer.parseInt(fila[6]));
             if (resul1.getEq1Id() < resul1.getEq2Id()) {  //El ID del equipo 1 es menor al ID del equipo 2
-                resul1.setResultadoId(String.format("%02d", resul1.getEq1Id()) + String.format("%02d", resul1.getEq2Id()));
+                resul1.setResultadoId(String.format(resul1.getRondaId() + "%02d", resul1.getEq1Id()) + String.format("%02d", resul1.getEq2Id()));
             } else {
-                resul1.setResultadoId(String.format("%02d", resul1.getEq2Id()) + String.format("%02d", resul1.getEq1Id()));
+                resul1.setResultadoId(String.format(resul1.getRondaId() + "%02d", resul1.getEq2Id()) + String.format("%02d", resul1.getEq1Id()));
             }
 
             this.misResultados.add(resul1); //Agregamos un elemento del tipo RESULTADO al ArrayList

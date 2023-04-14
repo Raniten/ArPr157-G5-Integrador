@@ -18,10 +18,8 @@ public class Prode {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
         
-        
         System.out.println(args[0]);
         System.out.println(args[1]);
-        
         
         // Obtenemos los datos del archivo PRONOSTICO
         ArrayList<String[]> datos = new ArrayList<>(); //Creamos un ArrayList de Arrays de Strings
@@ -74,68 +72,36 @@ public class Prode {
         int cantidadPersonaIds = personasIds.size();
         int cantidadRondaIds = rondasIds.size();
 
-        System.out.println("Cantidad de personasIds distintos: " + cantidadPersonaIds);
-        System.out.println("Cantidad de rondasIds distintos: " + cantidadRondaIds);
-
         //Vamos a calcular el puntaje de cada PERSONA, y por cada RONDA
         //Creamos un ArrayList para crear las listas filtradas
         ArrayList<Pronostico> pronosticosFiltrados = new ArrayList<Pronostico>();
         Puntaje misPuntajes;
+        int puntajePorPersona;
+        int puntajePorRonda;
         
-        
-        for (int i = 0; i < cantidadPersonaIds; i++) {
-            pronosticosFiltrados.clear(); //dejamos sin elementos la lista filtrada
-            for (int j = 0; j < cantidadRondaIds; j++) {
+        for (Integer persId : personasIds) {
+            puntajePorPersona = 0;
+            for (Integer rondId : rondasIds) {
+                pronosticosFiltrados.clear(); //blanqueamos la lista filtrada
                 for (Pronostico p : misPronosticos) {
                     // Verificar si el objeto cumple con los criterios de filtrado
-                    if (personasIds.contains(p.getPersonaId()) && rondasIds.contains(p.getRondaId())) {
+                    if (persId==p.getPersonaId() && rondId==p.getRondaId()) {
                     // Si cumple, agregar el objeto al ArrayList de objetos filtrados
                     pronosticosFiltrados.add(p);
                     }
                 }
                 misPuntajes = new Puntaje(pronosticosFiltrados, misResultados);
+                puntajePorRonda = misPuntajes.calcularPuntaje();
                 System.out.println("*************************************************");
-                System.out.println("*                Puntaje: " + misPuntajes.calcularPuntaje() + "                    *");
+                System.out.println("*                Puntaje Ronda " + rondId + ":    " + puntajePorRonda + "          *");
                 System.out.println("*************************************************");
-                
+                puntajePorPersona = puntajePorPersona + puntajePorRonda;
             }
+        
+            System.out.println("------------------------------------------------------");
+            System.out.println("|           Puntaje TOTAL Persona " +persId + ":  " + puntajePorPersona + "             |");
+            System.out.println("------------------------------------------------------");
         }
         
-        misPuntajes = new Puntaje(misPronosticos, misResultados);
-        
-        System.out.println("*************************************************");
-        System.out.println("*                Puntaje: " + misPuntajes.calcularPuntaje() + "                    *");
-        System.out.println("*************************************************");
-        
-        //-------------------------------------------------------------------------------------------
-        
-//        System.out.println("------------------------------------------------------");
-//        System.out.println("Comprobar si carga los datos");
-//        System.out.println("------------------------------------------------------");
-//        
-//        System.out.println("------------------------------------------------------");
-//        System.out.println("Pronosticos");
-//        System.out.println("------------------------------------------------------");
-//        for (Pronostico misPronos : misPronosticos) {
-//            System.out.println("Id de Pronostico: " + misPronos.getPronosticoId());
-//            System.out.println("Id Equipo 1: " + misPronos.getEq1Id());
-//            System.out.println("Gana Equipo 1: " + misPronos.isGana1());
-//            System.out.println("Empatan: " + misPronos.isEmpatan());
-//            System.out.println("Gana Equipo 2: " + misPronos.isGana2());
-//            System.out.println("Id Equipo 2: " + misPronos.getEq2Id());
-//            System.out.println("------------------------");
-//        }
-//        
-//        System.out.println("------------------------------------------------------");
-//        System.out.println("Resultados");
-//        System.out.println("------------------------------------------------------");
-//        for (Resultado misResuls : misResultados) {
-//            System.out.println("Id Resultado: " + misResuls.getResultadoId());
-//            System.out.println("Id Equipo 1: " + misResuls.getEq1Id());
-//            System.out.println("Goles Equipo 1: " + misResuls.getGolesEq1());
-//            System.out.println("Goles Equipo 2: " + misResuls.getGolesEq2());
-//            System.out.println("Id Equipo 2: " + misResuls.getEq2Id());
-//            System.out.println("------------------------");
-//        }
     }
 }
