@@ -12,8 +12,13 @@
             <properties>
                 <exec.vmArgs></exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
+<<<<<<< HEAD
+                <exec.appArgs></exec.appArgs>
+                <exec.mainClass>${packageClassName}</exec.mainClass>
+=======
                 <exec.appArgs>D:\ArPr157-G5-Integrador\Prode\pronostico.csv D:\ArPr157-G5-Integrador\Prode\resultados.csv</exec.appArgs>
                 <exec.mainClass>argprog157.prode.Prode</exec.mainClass>
+>>>>>>> 95593c3c638cb1be15b180af3edfd8e5a7737aa9
                 <exec.executable>java</exec.executable>
                 <exec.workingdir></exec.workingdir>
             </properties>
@@ -30,8 +35,13 @@
             <properties>
                 <exec.vmArgs>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
+<<<<<<< HEAD
+                <exec.appArgs></exec.appArgs>
+                <exec.mainClass>${packageClassName}</exec.mainClass>
+=======
                 <exec.appArgs>D:\ArPr157-G5-Integrador\Prode\pronostico.csv D:\ArPr157-G5-Integrador\Prode\resultados.csv</exec.appArgs>
                 <exec.mainClass>argprog157.prode.Prode</exec.mainClass>
+>>>>>>> 95593c3c638cb1be15b180af3edfd8e5a7737aa9
                 <exec.executable>java</exec.executable>
                 <jpda.listen>true</jpda.listen>
                 <exec.workingdir></exec.workingdir>
@@ -51,7 +61,7 @@
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.mainClass>argprog157.prode.Prode</exec.mainClass>
                 <exec.executable>java</exec.executable>
-                <exec.appArgs>D:\ArPr157-G5-Integrador\Prode\pronostico.csv D:\ArPr157-G5-Integrador\Prode\resultados.csv</exec.appArgs>
+                <exec.appArgs></exec.appArgs>
                 <exec.workingdir></exec.workingdir>
             </properties>
         </action>
