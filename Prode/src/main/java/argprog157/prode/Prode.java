@@ -22,6 +22,7 @@ public class Prode {
         System.out.println(args[1]);
         
         // Obtenemos los datos del archivo PRONOSTICO
+        //texto de prueba
         ArrayList<String[]> datos = new ArrayList<>(); //Creamos un ArrayList de Arrays de Strings
         
         //LeerArchivo archivo = new LeerArchivo("src\\main\\java\\argprog157\\prode\\pronostico.csv", ";"); //Instanciamos un objeto del tipo LEERARCHIVO
