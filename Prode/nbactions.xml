@@ -12,7 +12,7 @@
             <properties>
                 <exec.vmArgs></exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.appArgs>D:\ArPr157-G5-Integrador\Prode\pronostico.csv D:\ArPr157-G5-Integrador\Prode\resultados.csv</exec.appArgs>
+                <exec.appArgs>H:\tp_utn\ArPr157-G5-Integrador\Prode\pronostico.csv  H:\tp_utn\ArPr157-G5-Integrador\Prode\resultados.csv</exec.appArgs>
                 <exec.mainClass>argprog157.prode.Prode</exec.mainClass>
                 <exec.executable>java</exec.executable>
             </properties>
@@ -29,7 +29,7 @@
             <properties>
                 <exec.vmArgs>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.appArgs>D:\ArPr157-G5-Integrador\Prode\pronostico.csv D:\ArPr157-G5-Integrador\Prode\resultados.csv</exec.appArgs>
+                <exec.appArgs>H:\tp_utn\ArPr157-G5-Integrador\Prode\pronostico.csv  H:\tp_utn\ArPr157-G5-Integrador\Prode\resultados.csv</exec.appArgs>
                 <exec.mainClass>argprog157.prode.Prode</exec.mainClass>
                 <exec.executable>java</exec.executable>
                 <jpda.listen>true</jpda.listen>
@@ -49,7 +49,7 @@
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.mainClass>argprog157.prode.Prode</exec.mainClass>
                 <exec.executable>java</exec.executable>
-                <exec.appArgs>D:\ArPr157-G5-Integrador\Prode\pronostico.csv D:\ArPr157-G5-Integrador\Prode\resultados.csv</exec.appArgs>
+                <exec.appArgs>H:\tp_utn\ArPr157-G5-Integrador\Prode\pronostico.csv  H:\tp_utn\ArPr157-G5-Integrador\Prode\resultados.csv</exec.appArgs>
             </properties>
         </action>
     </actions>
