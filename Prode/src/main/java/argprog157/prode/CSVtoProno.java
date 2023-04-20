@@ -13,6 +13,8 @@ public class CSVtoProno {
 
     public CSVtoProno(ArrayList<String[]> datos) {
         this.datos = datos;
+//        System.out.println(this.datos.get(0).length);
+//        System.out.println(this.datos.get(0)[0]);
     }
 
     public ArrayList<Pronostico> getArrayListProno() {
