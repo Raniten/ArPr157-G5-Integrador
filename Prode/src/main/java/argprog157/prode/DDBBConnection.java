@@ -30,9 +30,6 @@ public class DDBBConnection {
         try {
             myProperties.load(new BufferedReader(new FileReader(rutaArchivoProperties)));
             
-            System.out.println(myProperties.getProperty("db.name"));
-            System.out.println(myProperties.getProperty("db.user"));
-            
             this.dBase = myProperties.getProperty("db.name");
             this.usuario = myProperties.getProperty("db.user");
             this.pass = myProperties.getProperty("db.pass");
