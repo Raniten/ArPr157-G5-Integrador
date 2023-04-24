@@ -20,20 +20,6 @@ public class LeerArchivo {
         this.separadorCSV = separadorCSV;
     }
     
-//    public ArrayList<String[]> devolverDatos () throws FileNotFoundException {
-//        ArrayList<String[]> datos = new ArrayList<>();
-//        File archivo = new File(this.nombreArchivo);
-//        
-//        Scanner sc = new Scanner(archivo);
-//        while (sc.hasNext()) {
-//            String linea = sc.nextLine();
-//            String[] fila = linea.split(this.separadorCSV);
-//            datos.add(fila);
-//        }
-//        datos.remove(0); //Eliminamos la cabecera, son datosProno que no necesitamos
-//        sc.close();  //Cerramos el archivo utilizado
-//        return datos;
-//    }
     public ArrayList<String[]> devolverDatos () throws FileNotFoundException, IOException {
         
         ArrayList<String[]> datos = new ArrayList<>();

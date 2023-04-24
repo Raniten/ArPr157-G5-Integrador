@@ -1,16 +1,17 @@
 package argprog157.prode;
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
+import java.util.Properties;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
-import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
 
 /**
  *
@@ -26,21 +27,34 @@ public class Prode {
         int cantPersonasPonosticos = 0;
         int cantRondasPorPersona = 0;
         int cantRondasPorPersonaEnPonosticos = 0;
-        //int variable;
-
-        String peopleTable = args[5];
-        String teamsTable = args[6];
-        String resultsTable = args[7];
-        String predictionsTable = args[8];
-        float puntosPorAcierto = Float.parseFloat(args[9]);
-        float incrementoPorRondaCompleta = Float.parseFloat(args[10]);
-
+        String peopleTable = "";
+        String teamsTable = "";
+        String resultsTable = "";
+        String predictionsTable = "";
+        float puntosPorAcierto = 0.0f;
+        float incrementoPorRondaCompleta = 0.0f;
+        
+        
+                
+        Properties myProperties = new Properties();
+        try {
+            myProperties.load(new BufferedReader(new FileReader(args[0])));
+            
+            peopleTable = myProperties.getProperty("db.table.people");
+            teamsTable = myProperties.getProperty("db.table.teams");
+            resultsTable = myProperties.getProperty("db.table.results");
+            predictionsTable = myProperties.getProperty("db.table.predictions");
+            puntosPorAcierto = Float.parseFloat(args[1]);
+            incrementoPorRondaCompleta = Float.parseFloat(args[2]);
+        } catch (IOException | NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "No se pudo leer el archivo de configuración: " + args[0] + " - " + e.toString(), "Error en argumentos", ERROR_MESSAGE);
+        } 
         /*
          ***********************************************************
          * verificamos si al cantidad de parámetros es la correcta
          ***********************************************************
          */
-        if (args.length != 11) {
+        if (args.length != 3) {
             JOptionPane.showMessageDialog(null, "Cantidad de argumentos inválida", "Error en argumentos", ERROR_MESSAGE);
         }
 
@@ -54,7 +68,7 @@ public class Prode {
          * CONECTAMOS A LA BASE DE DATOS
          *******************************************************************************
          */
-        DDBBConnection myConnection = new DDBBConnection(args[0], args[1], args[2], args[3], args[4]);
+        DDBBConnection myConnection = new DDBBConnection(args[0]);
         Connection DDBBConnect = myConnection.ConnectToDDBB();
 
         //Si no se pudo conectar a la base de datos
@@ -188,9 +202,7 @@ public class Prode {
             try {
                 st = DDBBConnect.createStatement();
                 st.executeUpdate(myStatement);
-//                if(resultadoUpdate == 1) {
-//                    JOptionPane.showMessageDialog(null, "Se modificó satisfactoriamente la base de datos con el puntaje de la persona " + (i+1), "Operación exitosa", INFORMATION_MESSAGE);
-//                }
+                
                 st = DDBBConnect.createStatement();
                 rs = st.executeQuery(sentenciaSelectPersonas);
                 if (rs.next()) {

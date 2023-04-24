@@ -1,8 +1,13 @@
 package argprog157.prode;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.Properties;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
 
 /**
  *
@@ -18,13 +23,25 @@ public class DDBBConnection {
     private String pass;// = "ArgPrograma1";
     private String ip;// = "localhost";
     private String puerto;// = "3306";
-
-    public DDBBConnection(String dBase, String usuario, String pass, String ip, String puerto) {
-        this.dBase = dBase;
-        this.usuario = usuario;
-        this.pass = pass;
-        this.ip = ip;
-        this.puerto = puerto;
+    
+    Properties myProperties = new Properties();
+    
+    public DDBBConnection(String rutaArchivoProperties) {
+        try {
+            myProperties.load(new BufferedReader(new FileReader(rutaArchivoProperties)));
+            
+            System.out.println(myProperties.getProperty("db.name"));
+            System.out.println(myProperties.getProperty("db.user"));
+            
+            this.dBase = myProperties.getProperty("db.name");
+            this.usuario = myProperties.getProperty("db.user");
+            this.pass = myProperties.getProperty("db.pass");
+            this.ip = myProperties.getProperty("db.ip");
+            this.puerto = myProperties.getProperty("db.port");
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "No se pudo leer el archivo de configuración: " + rutaArchivoProperties, "Error en argumentos", ERROR_MESSAGE);
+        }
+        
     }
     
     public Connection ConnectToDDBB () {

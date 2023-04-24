@@ -12,7 +12,7 @@ public class SQLtoResul {
 
     private ResultSet datos;
     
-    private ArrayList<Resultado> misResultados = new ArrayList<Resultado>();
+    private ArrayList<Resultado> misResultados = new ArrayList<>();
 
     public SQLtoResul(ResultSet datos) {
         this.datos = datos;
