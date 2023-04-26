@@ -1,5 +1,6 @@
 package argprog157.prode;
 
+import java.awt.HeadlessException;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -20,12 +21,27 @@ import static javax.swing.JOptionPane.ERROR_MESSAGE;
 public class Prode {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
+        
+        /*
+         ***********************************************************
+         * verificamos si la cantidad de parámetros es la correcta
+         ***********************************************************
+         */
+        if (args.length != 3) {
+            JOptionPane.showMessageDialog(null, "Cantidad de argumentos inválida", "Error en argumentos", ERROR_MESSAGE);
+        }
+        
 
-        Persona[] personas;
-        int cantPersonasEnTablaPersonas = 0;
+        /*
+         ***********************************************************
+         * Definimos todas las varaibles de trabajo que vamos a usar en el MAIN
+         ***********************************************************
+         */
+        
+        //Persona[] personas;
+        //int cantPersonasEnTablaPersonas = 0;
         int cantRondasEnResultados = 0;
         int cantPersonasPonosticos = 0;
-        int cantRondasPorPersona = 0;
         int cantRondasPorPersonaEnPonosticos = 0;
         String peopleTable = "";
         String teamsTable = "";
@@ -33,9 +49,19 @@ public class Prode {
         String predictionsTable = "";
         float puntosPorAcierto = 0.0f;
         float incrementoPorRondaCompleta = 0.0f;
+        String myStatement;
+        Statement st;
+        ResultSet rs;
+        ArrayList<Resultado>[] resultadosPorRonda;
         
         
-                
+        
+        /*
+         ***********************************************************
+         * Obtenemos información del archivo PROPERTIES
+           El nombre del archivo viene por parámetro al MAIN
+         ***********************************************************
+         */
         Properties myProperties = new Properties();
         try {
             myProperties.load(new BufferedReader(new FileReader(args[0])));
@@ -49,26 +75,16 @@ public class Prode {
         } catch (IOException | NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "No se pudo leer el archivo de configuración: " + args[0] + " - " + e.toString(), "Error en argumentos", ERROR_MESSAGE);
         } 
-        /*
-         ***********************************************************
-         * verificamos si al cantidad de parámetros es la correcta
-         ***********************************************************
-         */
-        if (args.length != 3) {
-            JOptionPane.showMessageDialog(null, "Cantidad de argumentos inválida", "Error en argumentos", ERROR_MESSAGE);
-        }
 
-        String myStatement;
-        Statement st;
-        ResultSet rs;
-        ArrayList<Resultado>[] resultadosPorRonda;
-
+        
         /*
          * *****************************************************************************
          * CONECTAMOS A LA BASE DE DATOS
          *******************************************************************************
          */
-        DDBBConnection myConnection = new DDBBConnection(args[0]);
+        
+        //Tratamos de concetar a la base de datos, pasando como parámetro el archivo properties
+        DDBBConnection myConnection = new DDBBConnection(args[0]); 
         Connection DDBBConnect = myConnection.ConnectToDDBB();
 
         //Si no se pudo conectar a la base de datos
@@ -80,7 +96,8 @@ public class Prode {
 
         /*
         ******************************************************************************
-        Vamos a crear un ArrayList<Resultado> por cada ronda distinta en la tabla "prode.resultados"
+        Vamos a crear un ArrayList<Resultado> 
+        por cada ronda distinta en la tabla "prode.resultados"
         ******************************************************************************
          */
         myStatement = "Select count(distinct Ronda) from " + resultsTable + ";";
@@ -93,19 +110,21 @@ public class Prode {
                 //JOptionPane.showMessageDialog(null, "Cantidad de rondas distintas que componen la tabla RESULTADOS: " + cantRondasEnResultados);
             }
 
-            /**
-             * ***********************************************************************
-             * Vamos a crear un array, sus elementos son ArrayList de objetos
-             * RESULTADO, de un tamaño igual a la cantidad de rondas que tiene
-             * la tabla RESULTADOS En este array, en definitiva, estarán todos
-             * los resultados, divididios por RONDA Ronda 1 =
-             * resultadosPorRonda[0] Ronda 2 = resultadosPorRonda[1] etc...
-             * *************************************************************************
-             */
-        } catch (Exception e) {
+            
+        } catch (SQLException e) {
             System.out.println("Error: " + e.toString());
         }
 
+        
+        /**
+        * ***********************************************************************
+        * Vamos a crear un array, sus elementos son ArrayList de objetos
+        * RESULTADO, de un tamaño igual a la cantidad de rondas que tiene
+        * la tabla RESULTADOS. En este array, en definitiva, estarán todos
+        * los resultados, divididios por RONDA Ronda 1 =
+        * resultadosPorRonda[0] Ronda 2 = resultadosPorRonda[1] etc...
+        * *************************************************************************
+        */
         resultadosPorRonda = new ArrayList[cantRondasEnResultados];
 
         try {
@@ -137,7 +156,7 @@ public class Prode {
             }
             //rs.close();
 
-        } catch (Exception e) {
+        } catch (HeadlessException | SQLException e) {
             System.out.println("Error: " + e.toString());
         }
 
