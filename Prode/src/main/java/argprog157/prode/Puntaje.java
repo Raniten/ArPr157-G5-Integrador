@@ -17,8 +17,10 @@ public class Puntaje {
     }
     
     public float calcularPuntaje(float puntosPorAcierto, float incrementoPorRondaCompleta) {
-        int cantAciertos = 0;
-        for (Pronostico prono : misPronosticos) {
+        int cantAciertos = 0; //Necesario para saber si acertó todos los aprtidos de la ronda
+        
+        for (Pronostico prono : misPronosticos) { //Iteramos sobre cada pronóstico de la ronda y de la persona
+            
             for (Resultado resul : misResultados) {
                 if(prono.getPronosticoId().equals(resul.getResultadoId())) {
                     if(resul.getGolesEq1() == resul.getGolesEq2()) { //EMPATAN

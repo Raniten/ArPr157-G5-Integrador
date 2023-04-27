@@ -17,6 +17,11 @@ import static javax.swing.JOptionPane.ERROR_MESSAGE;
 /**
  *
  * @author Argentina Programa - Comisión 157-2023 - Grupo 5
+ * Néstor Hugo Lombardo
+ * Juan Manuel Amsler
+ * Juan Emilio Dellaferrera
+ * Marcelo Daniel Ranzani
+ * 
  */
 public class Prode {
 
@@ -34,7 +39,7 @@ public class Prode {
 
         /*
          ***********************************************************
-         * Definimos todas las varaibles de trabajo que vamos a usar en el MAIN
+         * Definimos todas las variables de trabajo que vamos a usar en el MAIN
          ***********************************************************
          */
         
@@ -74,6 +79,7 @@ public class Prode {
             incrementoPorRondaCompleta = Float.parseFloat(args[2]);
         } catch (IOException | NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "No se pudo leer el archivo de configuración: " + args[0] + " - " + e.toString(), "Error en argumentos", ERROR_MESSAGE);
+            System.exit(0);
         } 
 
         
@@ -118,7 +124,7 @@ public class Prode {
         
         /**
         * ***********************************************************************
-        * Vamos a crear un array, sus elementos son ArrayList de objetos
+        * Vamos a crear un Array, sus elementos son ArrayList de objetos
         * RESULTADO, de un tamaño igual a la cantidad de rondas que tiene
         * la tabla RESULTADOS. En este array, en definitiva, estarán todos
         * los resultados, divididios por RONDA Ronda 1 =
